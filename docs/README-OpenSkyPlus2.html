@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>OpenSkyPlus 2 — Quick Start</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;margin:24px;line-height:1.45;color:#111}
+    h1{font-size:1.6rem;margin:0 0 8px}
+    h2{font-size:1.2rem;margin:20px 0 8px}
+    code,pre{background:#f6f8fa;border:1px solid #eaecef;border-radius:6px;padding:2px 6px}
+    .callout{background:#f6faff;border-left:4px solid #2f81f7;padding:10px 12px;border-radius:6px}
+    .ok{color:#1a7f37}.warn{color:#a15c00}.bad{color:#b3261e}
+    ul{margin:10px 0 10px 22px}
+    footer{margin-top:28px;color:#555;font-size:.92rem}
+    /* header styles */
+    .header{max-width:920px;margin:0 auto 12px; padding:24px 20px 8px; display:flex;align-items:center;gap:14px}
+    .header .logo{width:120px;height:120px}
+    .header h1{margin:0;font-size:28px;letter-spacing:.2px}
+    .header .meta{color:#46607a;font-size:14px;margin-top:2px}
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <img class="logo" src="README-assets/OpenSkyPlus2_Logo.png" alt="OpenSkyPlus2 logo">
+    <div>
+      <h1>OpenSkyPlus2 — Quick Start</h1>
+      <div class="meta">Launch Monitor agnostic plugin and Software bridge</div>
+    </div>
+  </header>
+  <div class="callout">
+    <strong>Not affiliated.</strong> OpenSkyPlus2 and GSPro4OSP are independent community projects and are <em>not</em> affiliated with, endorsed by, or sponsored by SkyTrak, GOLFTEC, Foresight, GSPro, or any of their parents, subsidiaries, or affiliates.
+  </div>
+
+  <h2>What was installed?</h2>
+  <ul>
+    <li><code>BepInEx</code> (v6) and bootstrap files in your SkyTrak folder (next to <code>SkyTrak.exe</code>).</li>
+    <li>OpenSkyPlus2 plugin (OSP2) and GSPro4OSP plugin (G4O v2) with default configs.</li>
+    <li>Optional firewall rule for GSPro OpenConnect (TCP 921) if you selected it.</li>
+    <li>A backup of any existing <code>BepInEx\</code> (if one was present and you approved backup), named <code>BepInEx.backup.YYYYMMDD-HHNNSS</code>.</li>
+  </ul>
+
+  <h2>Version compatibility</h2>
+  <ul>
+    <li><span class="ok">Supported:</span> SkyTrak <strong>5.4, 5.5, 5.6</strong> (last tested: <strong>5.6.14</strong>).</li>
+    <li><span class="bad">Blocked:</span> SkyTrak <strong>4.4.x</strong> in the selected folder (use SkyTrak v5.x or choose a different folder).</li>
+    <li><span class="warn">Newer/older than 5.4–5.6:</span> allowed with warning; results not guaranteed.</li>
+  </ul>
+
+<h2>Supported Launch Monitors</h2>
+  <ul>
+    <li><strong>ST</strong> - I do not own this, but can confirm this does work via external testing. If a feature does not work, let me know.</li>
+    <li><strong>ST+</strong> - This plugin was built with this device and its users in mind.</li>
+    <li><strong>Foresight Devices</strong> - These can connect to the software, so they should work, but I am not a millionaire, so I have not tested them. I wrote the plugin to be agnostic to the hardware, while taking all parameters into account for each different device.</li>
+  </ul>
+
+  <h2>How to launch</h2>
+  <ol>
+    <li>Close other SkyTrak instances.</li>
+    <li>Start the <strong>SkyTrak app</strong> normally (desktop shortcut if you created one).</li>
+    <li>On first run, BepInEx will initialize. You should see a small OSP2 MinimizedUI overlay (bottom-right) and entries in <code>BepInEx\LogOutput.log</code>. It does not matter if you have the launch monitor on before launch; start this process in your normal way.</li>
+  </ol>
+
+  <h2>Verify it’s working</h2>
+  <ul>
+    <li>Look for the OSP2 overlay bar with a status dot (bottom-right); tap/click to open the ExpandedUI. Tap again to return to MinimizedUI.</li>
+    <li>Check <code>BepInEx\LogOutput.log</code> to see if the plugins were loaded and for lines containing <code>[OpenSkyPlus2]</code> or <code>[GSPro4OSP]</code>.</li>
+	<li>It will take awhile on first load because it will need to extract dependencies, but afterward, it will load normally.</li>
+	<li>If the launch monitor is detected and you have GSPro running, you will see the indicator on the MinimizedUI go green. Green = Good to go.</li>
+  </ul>
+<!-- ───────────────────── UI REFERENCE ───────────────────── -->
+<style>
+  .ui-ref{margin:28px 0}
+  .ui-ref h2{margin:0 0 10px}
+  .ui-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+  .ui-card{background:#fff;border:1px solid #e6eef7;border-radius:12px;padding:14px}
+  .ui-card h3{margin:0 0 8px;font-size:16px}
+  .ui-card dl{margin:0}
+  .ui-card dt{font-weight:600;margin-top:10px}
+  .ui-card dd{margin:4px 0 0 0;color:#1b3550}
+  .legend{font-size:14px;color:#46607a;margin-top:10px}
+  .kbd{background:#eef6ff;border:1px solid #d8e9ff;border-radius:6px;padding:0 .35em;font-family:ui-monospace,SFMono-Regular,Consolas,monospace}
+</style>
+
+<section class="ui-ref" id="ui-reference">
+  <h2>Main UI</h2>
+  <p>Quick guide to the controls in the OpenSkyPlus <em>ExpandedUI</em> and what the <em>MinimizedUI</em> indicators mean.</p>
+<figure>
+    <img src="README-assets/ExpandedUI.png"
+         alt="OpenSkyPlus2 ExpandedUI with buttons for Force Normal Mode, Force Putting Mode, Force Arm, Resend Last Shot, Switch Handedness, Restart Connection to GSPro, and AdvancedDataUI"
+         style="max-width:100%;height:auto;border-radius:10px;box-shadow:0 8px 22px rgba(0,0,0,.15)">
+    <figcaption style="color:#46607a">
+	ExpandedUI/MinimizedUI — State indication and device manipulation.</figcaption>
+  </figure>
+  <div class="ui-grid">
+    <div class="ui-card">
+      <h3>ExpandedUI — Buttons & Areas</h3>
+      <dl>
+        <dt>Console</dt>
+        <dd>Live status/log output. Useful for troubleshooting (arm/re-arm events, mode changes, handedness changes, and connection & shot info) and device-state manipulation.</dd>
+
+        <dt>Normal Mode <span class="legend">(<span class="kbd">iron</span> icon)</span></dt>
+        <dd>Puts the device into <strong>Normal</strong> shot mode (tee/fairway/rough). OSP2 re-arms automatically.</dd>
+
+        <dt>Putting Mode <span class="legend">(<span class="kbd">putter</span> icon)</span></dt>
+        <dd>Puts the device into <strong>Putting</strong> mode. OSP2 re-arms and the minimized icon updates to a putter.</dd>
+
+        <dt>Force Arm / Ready <span class="legend">(<span class="kbd">check</span> icon)</span></dt>
+        <dd>Forces a “ready” state after a mode switch or connection hiccup. Safe to tap if shots aren’t arming. Only needed in rare situations, but there just in case.</dd>
+
+        <dt>Resend Last Shot <span class="legend">(<span class="kbd">Golf ball</span> icon)</span></dt>
+        <dd>Resends the previous shot to GSPro. Use in the event there was a disconnect and the shot was not passed correctly.</dd>
+
+        <dt>Handedness <span class="legend">(<span class="kbd">glove</span> icon)</span></dt>
+        <dd>Toggles <strong>Right-handed</strong> / <strong>Left-handed</strong>. OSP2 applies the change and re-arms.</dd>
+
+        <dt>Reconnect <span class="legend">(<span class="kbd">circular arrows</span> icon)</span></dt>
+        <dd>Reconnects to OpenConnect in case SkyTrak disconnects or closes mid-round. Sends a ping to OpenConnect to re-establish comms.</dd>
+
+        <dt>Advanced Data <span class="legend">(<span class="kbd">bar chart</span> button)</span></dt>
+        <dd>Opens the AdvancedDataUI panel with helpful metrics to help you understand your shot and actionable changes that could be made. Resets after every shot.</dd>
+
+        <dt>Window controls</dt>
+        <dd>Top-right button to <strong>minimize</strong> back to the compact tile. I would like to make the ExpandedUI draggable, but wanted to get the plugin out prior. There is difficulty in making that work correctly in someone else's environment.</dd>
+      </dl>
+    </div>
+
+    <div class="ui-card">
+      <h3>MinimizedUI — Indicators & Actions</h3>
+      <dl>
+        <dt>Status LED</dt>
+        <dd>
+          <span class="legend">Green</span> = armed and connected to GSPro •
+          <span class="legend">Yellow</span> = Launch Monitor connected, waiting on connection to GSPro •
+          <span class="legend">Red</span> = disconnected from Launch Monitor and GSPro •
+        </dd>
+
+        <dt>Mode Indicator</dt>
+        <dd>Iron = <strong>Normal</strong> mode, Putter = <strong>Putting</strong> mode (auto-updates on GSPro or OSP2 changes).</dd>
+
+        <dt>Overlay</dt>
+        <dd>If you can see “OpenSkyPlus2” — Indicates the bridge is active and injected.</dd>
+
+        <dt>Expand/Minimize</dt>
+        <dd>Click the tile to open the Expanded UI. Useful once you’ve verified status and want more controls. Click the MinimizedUI to minimize, as well.</dd>
+      </dl>
+
+      <p class="legend">Tip: If a button is unresponsive in the ExpandedUI, it usually means the device isn’t ready yet. There will be a message to inform you of the status.</p>
+    </div>
+  </div>
+</section>
+<!-- ─────────────────── end Main UI REFERENCE ─────────────────── -->
+<!-- ───────────── ADVANCED DATA UI ───────────── -->
+<section id="advanced-data-ui" class="ui-ref">
+  <h2>AdvancedDataUI - ⚠️ this UI will be updated after launch ⚠️</h2>
+  <figure>
+    <img src="README-assets/AdvancedDataUI.png"
+         alt="OpenSkyPlus2 Advanced Data UI"
+         style="max-width:70%;height:auto;border-radius:10px;box-shadow:0 8px 22px rgba(0,0,0,.15)">
+    <figcaption style="color:#46607a">
+      Live readout panel for ball/club metrics (e.g., Ball Speed, Club Speed, Spin Axis, Club Path, Attack Angle, Closure Rate,
+      Carry Distance, Face Angle, Dynamic Loft, Face Impact). Values refresh after each shot. H/V on the right shows horizontal/vertical alignment feedback.
+    </figcaption>
+  </figure>
+
+  <div class="ui-grid">
+    <div class="ui-card">
+      <h3>Alignment Mode</h3>
+      <p>Enables SkyTrak’s alignment mode on supported devices to help you square the unit to the target line before play.</p>
+    </div>
+
+    <div class="ui-card">
+      <h3>Disarm</h3>
+      <p>Forces the launch monitor to a disarmed state. Useful while troubleshooting or when you want to stop arming between tests.</p>
+    </div>
+
+    <div class="ui-card">
+      <h3>Config (gear)</h3>
+      <p>Opens the <strong>ConfigUI</strong> so you can tweak options (interpolation, confidence, putt clamping, UI size, etc.). Changes are hot-loaded on <em>Save</em>.</p>
+    </div>
+  </div>
+</section>
+<!-- ─────────── end ADVANCED DATA UI ─────────── -->
+
+<!-- ───────────── CONFIG UI ───────────── -->
+<section id="config-ui" class="ui-ref">
+  <h2>ConfigUI (live settings)</h2>
+  <p>
+    The Config UI lets you tweak OSP2 at runtime and <strong>hot-load</strong> the changes.
+    Click the <em>Save</em> icon to write <code>BepInEx\config\OpenSkyPlus2.cfg</code> and apply immediately.
+    Close (<em>×</em>) just hides the panel; unsaved changes are not applied or persisted.
+  </p>
+
+  <figure>
+    <img src="README-assets/ConfigUI.png"
+         alt="OpenSkyPlus2 Config UI with switches for Smart Data Interpolation, Reset Connection, Confidence, Putt Clamping, thresholds and UI size"
+         style="max-width:100%;height:auto;border-radius:10px;box-shadow:0 8px 22px rgba(0,0,0,.15)">
+    <figcaption style="color:#46607a">
+	ConfigUI — settings are applied on Save and hot-loaded without restarting the app.</figcaption>
+  </figure>
+
+  <div class="ui-grid">
+    <div class="ui-card">
+      <h3>Smart Data Interpolation</h3>
+      <p>Fills missing or unreliable shot metrics using OSP2’s interpolator (club-aware, industry-standard models). Improves realism when sensor data is sparse. Also exposes metrics not previously available.</p>
+    </div>
+
+    <div class="ui-card">
+      <h3>Reset Connection After Reset</h3>
+      <p>After a mode change or re-arm, briefly resets the device connection to clear stale states. Leave <em>off</em> unless you’re debugging device connectivity or see a real need to have it on as it does slow the process down.</p>
+    </div>
+
+    <div class="ui-card">
+      <h3>Confidence Setting</h3>
+      <p><strong>Forgiving</strong>, <strong>Normal</strong>, or <strong>Strict</strong> filtering of low-confidence shots. Forgiving is recommended when Smart Data Interpolator is enabled.</p>
+      <ul style="margin:6px 0 0 18px">
+        <li>Forgiving ≈ lowest filter floor</li>
+        <li>Normal ≈ balanced default</li>
+        <li>Strict ≈ highest quality only</li>
+      </ul>
+      <p class="legend" style="margin-top:6px">Internally maps to numeric floors (Forgiving/Normal/Strict) used by the processor.</p>
+    </div>
+
+    <div class="ui-card">
+      <h3>Putt Clamping Enabled</h3>
+      <p>Within the distance threshold, clamps putting <em>HLA</em> (horizontal launch angle) to the configured maximum to tame “tap-in wobble.” This has been added due to mat differences which can cause irregular reads for HLA. Leave off if you do not have any issues with HLA on short putts. </p>
+    </div>
+
+    <div class="ui-card">
+      <h3>Putting Distance Threshold</h3>
+      <p>Distance from the pin under which the max putting HLA deviation is enforced. The UI shows feet; values are stored in meters in the config file.</p>
+    </div>
+
+    <div class="ui-card">
+      <h3>Putting Max HLA Deviation</h3>
+      <p>Maximum allowed HLA (degrees) for short putts. Smaller = straighter putts near the hole.</p>
+    </div>
+
+    <div class="ui-card">
+      <h3>UI Width / UI Height</h3>
+      <p>Resize the ExpandedUI as a percentage of your screen (default 60% × 60%). Handy for smaller monitors or ultra-wide layouts.</p>
+    </div>
+
+    <div class="ui-card">
+      <h3>Save Icon</h3>
+      <p>Writes <code>OpenSkyPlus2.cfg</code> and applies changes immediately (“hot-load”). Use this after any adjustments you want to keep.</p>
+    </div>
+
+    <div class="ui-card">
+      <h3>Close (×)</h3>
+      <p>Closes the ConfigUI without saving. Your last <em>saved</em> values stay active.</p>
+    </div>
+  </div>
+</section>
+<!-- ─────────── end CONFIG UI ─────────── -->
+
+
+
+  <h2>Connecting to GSPro</h2>
+  <ol>
+    <li>Open GSPro &rarr; <strong>OpenConnect</strong>.</li>
+    <li>Default is <code>127.0.0.1:921</code>. Ensure the port matches your G4O2 config.</li>
+    <li>Once connected, the OSP2 overlay dot should turn green; shots will stream automatically.</li>
+  </ol>
+
+  <h2>Config files</h2>
+  <ul>
+    <li><strong>OSP2</strong> (OpenSkyPlus2): <code>BepInEx\config\OpenSkyPlus2.cfg</code></li>
+    <li><strong>G4O2</strong> (GSPro4OSP v2): <code>BepInEx\config\GsPro4Osp.json</code></li>
+  </ul>
+  <p>See the two “Config Quick Guides” included with the installer for available options.</p>
+
+  <h2>Uninstall / Restore</h2>
+  <ul>
+    <li>Use “Apps &amp; Features” → <strong>OpenSkyPlus2</strong> → Uninstall.</li>
+    <li>The installer will remove OSP2/G4O2 and BepInEx bootstrap files, leaving SkyTrak intact.</li>
+    <li>If you created a backup, you can manually restore <code>BepInEx.backup.*</code> by renaming it back to <code>BepInEx</code>.</li>
+  </ul>
+
+  <h2>Support &amp; Donations</h2>
+  <p>This is a community project; issues and ideas are welcomed on discord or the GitHub repo. If OpenSkyPlus2 and GSPro4OSP are useful to you, click the link below. A coffee helps keep development moving ❤️.</p>
+<p style="text-align:center;margin:12px 0 18px">
+  <a href="https://www.buymeacoffee.com/eksisle" target="_blank" rel="noopener">
+    <img src="README-assets/buymeacoffee.png" alt="Buy me a coffee" style="height:44px;width:auto">
+  </a>
+</p>
+  
+  <footer>
+    &copy; 2025 OpenSkyPlus2 — Independent project, not affiliated with SkyTrak/GOLFTEC/Foresight/GSPro/OpenSkyPlus (v1).<br/>
+    All product names, logos, and brands are property of their respective owners. Big thanks to OpenSkyPlus's work on the v1 mono version of their software to make this plugin possible. This would not exist without them.
+  </footer>
+</body>
+</html>

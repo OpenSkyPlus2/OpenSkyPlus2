@@ -1,0 +1,43 @@
+OpenSkyPlus2 and GSPro4OSP2 — End User License Agreement (EULA)
+Version 1.0 — 2025-08-27
+
+IMPORTANT – READ CAREFULLY. By installing or using this Software, you agree to be bound by this EULA.
+
+1. LICENSE GRANT
+Subject to this EULA, Licensor grants you a personal, non-exclusive, non-transferable, revocable license to install and use the Software for non-commercial, personal use on your own devices.
+
+2. RESTRICTIONS
+You may NOT:
+  (a) sell, resell, rent, lease, sublicense, or otherwise commercialize the Software;
+  (b) distribute, publish, host, mirror, or make the Software available to third parties, in whole or in part (including installers, modified builds, forks, or archives) without permission from the developer of OpenSkyPlus2;
+  (c) remove or alter any notices, attributions, or trademarks;
+  (d) reverse engineer, decompile, or disassemble the Software, except to the extent such activity is expressly permitted by applicable law or by terms of third-party components used with the Software.
+
+3. THIRD-PARTY COMPONENTS
+The Software may include or interoperate with third-party components that are licensed separately by their respective authors (e.g., BepInEx, HarmonyX). Your use of those components is subject to their respective licenses, which are provided in the “ThirdPartyNotices” folder and remain in full force. Nothing in this EULA limits rights granted to you by those third-party licenses. (BepInEx is licensed under LGPL-2.1.)
+
+4. COMPATIBILITY
+This Software targets SkyTrak app versions 5.4, 5.5, and 5.6. Use with versions outside this range may not work as intended. Installation into SkyTrak 4.4.x folders is not supported.
+
+5. NO AFFILIATION; TRADEMARKS
+This project is independent and not affiliated with, endorsed by, or sponsored by SkyTrak, GOLFTEC, GSPro, or any of their parents, subsidiaries, or affiliates. All product names, logos, and brands are the property of their respective owners and should not be conflated with OpenSkyPlus2 or GSPro4OSP2.
+
+6. WARRANTY DISCLAIMER
+THE SOFTWARE IS PROVIDED “AS IS” WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.
+
+7. LIMITATION OF LIABILITY
+TO THE MAXIMUM EXTENT PERMITTED BY LAW, LICENSOR AND CONTRIBUTORS ARE NOT LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, EXEMPLARY, OR PUNITIVE DAMAGES, OR ANY LOSS OF DATA, PROFITS, OR REVENUE, ARISING OUT OF OR RELATING TO YOUR USE OF THE SOFTWARE.
+
+8. TERMINATION
+This EULA terminates automatically if you breach its terms. Upon termination, you must cease use and destroy all copies of the Software.
+
+9. UPDATES; CHANGES
+Licensor may update the Software or this EULA at any time. Continued use after an update constitutes acceptance.
+If you do want to help with the development or post this somwhere on te internet, reach out to the developer on discord. 
+
+10. GOVERNING LAW
+[Choose your jurisdiction]. If any provision is unenforceable, the remainder will remain in effect.
+
+By selecting “I accept” in the installer or by using the Software, you acknowledge that you have read and agree to this EULA.
+
+2025 OpenSkyPlus2. All rights reserved.
