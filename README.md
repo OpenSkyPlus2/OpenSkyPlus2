@@ -9,6 +9,6 @@
 
 ## License
 
-- Source code: see [LICENSE](LICENSE)  
+- Source code: Not available yet. See [LICENSE](LICENSE)  
 - Binaries/installer: governed by [EULA](EULA.txt)  
 - Third-party notices: [THIRD_PARTY_NOTICES](THIRD_PARTY_NOTICES/)
