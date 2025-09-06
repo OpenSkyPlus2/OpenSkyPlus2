@@ -1,16 +1,14 @@
-## Hi there 👋
+# OpenSkyPlus 2 (OSP2) + GSPro4OSP
 
-<!--
-**OpenSkyPlus2/OpenSkyPlus2** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+> Community plugin to bridge SkyTrak+ / SkyTrak to GSPro via BepInEx v6 (IL2CPP, Unity 2022).
+> **Not affiliated** with SkyTrak, GOLFTEC, GSPro, or their parents/affiliates.
 
-Here are some ideas to get you started:
+- Quick Start (HTML): [docs/README-OpenSkyPlus2.html](docs/README-OpenSkyPlus2.html)
+- Installer downloads: see [Releases](../../releases)
+- Donate: [Buy me a coffee](https://www.buymeacoffee.com/eksisle)
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+## License
+
+- Source code: see [LICENSE](LICENSE)  
+- Binaries/installer: governed by [EULA](EULA.txt)  
+- Third-party notices: [THIRD_PARTY_NOTICES](THIRD_PARTY_NOTICES/)
