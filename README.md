@@ -3,7 +3,7 @@
 > Community plugin to bridge a Launch Monitor application to GSPro via BepInEx v6 (IL2CPP, Unity 2022).
 > **Not affiliated** with SkyTrak, GOLFTEC, GSPro, or their parents/affiliates.
 
-- Quick Start (HTML): [docs/README-OpenSkyPlus2.html](docs/README-OpenSkyPlus2.html)
+- Quick Start (HTML): [Quick Start](https://openskyplus2.github.io/OpenSkyPlus2/README-OpenSkyPlus2.html)
 - Installer downloads: see [Releases](../../releases)
 - Donate: [Buy me a coffee](https://www.buymeacoffee.com/eksisle)
 
