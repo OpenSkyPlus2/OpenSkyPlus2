@@ -1,4 +1,4 @@
-# OpenSkyPlus 2 (OSP2) + GSPro4OSP
+# OpenSkyPlus2 (OSP2) + GSPro4OSP
 
 > Community plugin to bridge a Launch Monitor application to GSPro via BepInEx v6 (IL2CPP, Unity 2022).
 > **Not affiliated** with SkyTrak, GOLFTEC, GSPro, or their parents/affiliates.
