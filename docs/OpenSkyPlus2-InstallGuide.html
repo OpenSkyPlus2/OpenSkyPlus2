@@ -35,19 +35,34 @@
   .cap{font-size:12px;color:#5a6b78;margin-top:8px}
   figure{margin:0}
   hr{border:0;border-top:1px solid #e5eef6;margin:24px 0}
+  header{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  flex-wrap:wrap;          
+}
+header .logo{
+  width:56px;            
+  height:56px;
+  object-fit:contain;
+}
+.header-text{
+  display:flex;
+  flex-direction:column;
+}
+header h1{ margin:0 0 4px; }
 </style>
+
 </head>
 <body>
 <div class="wrap">
 
- <header>
-  <img class="logo" src="README-assets/OpenSkyPlus2_Logo.png" alt="OpenSkyPlus2 logo" />
-  <div class="header-text">
+  <header>
+     <img class="logo" src="README-assets/OpenSkyPlus2_Logo.png" alt="OpenSkyPlus2 logo" />
     <h1>OpenSkyPlus2 — Installation Guide</h1>
     <p class="tiny">Version: <strong>2.0.0</strong> · Developer: eKsiSLe · Project: <a href="https://github.com/OpenSkyPlus2">github.com/OpenSkyPlus2</a></p>
-  </div>
-</header>
-  
+  </header>
+
   <div class="note ok">
     <strong>TL;DR :</strong> Run the installer as Administrator, point it at your <code>C:\SkyTrak</code> folder (or let it install SkyTrak for you), finish, then launch “<em>SkyTrak (as Admin)</em>” from your desktop. That’s it.
   </div>
@@ -210,6 +225,4 @@
 </div>
 </body>
 </html>
-
-
 
