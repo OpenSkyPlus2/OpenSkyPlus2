@@ -1,261 +1,228 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>OpenSkyPlus 2 – Frequently Asked Questions (FAQ)</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <style>
-    :root{
-      --bg:#f7f9fb; --card:#ffffff; --ink:#0a0f14; --muted:#506172;
-      --link:#1067c7; --ok:#2ba24c; --warn:#d99a00; --bad:#d1495b;
-      --border:#e4ebf2; --mono:#0f172a;
-    }
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";}
-    main{max-width:980px;margin:40px auto 80px;padding:0 20px;}
-    header{display:flex;align-items:center;gap:14px;margin-bottom:18px;}
-    header img.logo{width:80px;height:80px}
-    h1{font-size:28px;margin:0}
-    .tagline{color:var(--muted);margin-top:2px}
-    .card{background:var(--card);border:1px solid var(--border);border-radius:14px;box-shadow:0 2px 8px rgba(2,8,23,0.04);padding:22px}
-    .toc{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px;margin:18px 0 26px}
-    .toc a{display:block;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:10px 12px;text-decoration:none;color:var(--link)}
-    h2{font-size:22px;margin:28px 0 12px}
-    h3{font-size:18px;margin:18px 0 8px}
-    p{margin:10px 0}
-    ul,ol{margin:8px 0 12px 22px}
-    .note{border-left:4px solid var(--link);background:#eef6ff;border-radius:8px;padding:10px 12px;margin:12px 0}
-    .warn{border-left:4px solid var(--warn);background:#fff7e6}
-    .bad{border-left:4px solid var(--bad);background:#fff1f3}
-    .ok{border-left:4px solid var(--ok);background:#eefbf2}
-    code, kbd{font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;background:#f3f6fa;color:var(--mono);padding:1px 6px;border-radius:6px;border:1px solid var(--border)}
-    pre{background:#0b1220;color:#f0f3f9;border-radius:10px;padding:14px;overflow:auto;border:1px solid #0f1a33}
-    .q{scroll-margin-top:80px}
-    .img{border:1px solid var(--border);border-radius:10px;overflow:hidden;margin:10px 0}
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>OpenSkyPlus2 — Installation Guide</title>
+<style>
+  :root{
+    --ink:#0a2230; --sub:#365266; --bg:#f6fbff; --accent:#0a6aa1; --ok:#0a8f47; --warn:#b25a00; --bad:#b11226;
+  }
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Arial,sans-serif}
+  .wrap{max-width:940px;margin:36px auto;padding:0 18px 48px}
+  h1{font-size:32px;line-height:1.2;margin:0 0 8px}
+  h2{font-size:22px;margin:24px 0 8px;color:var(--accent)}
+  h3{font-size:18px;margin:18px 0 6px}
+  p{margin:8px 0}
+  ul,ol{margin:6px 0 12px 24px}
+  code,kbd{background:#eef6fb;border:1px solid #d7e9f6;border-radius:4px;padding:.1em .4em;font-family:ui-monospace,Menlo,Consolas,monospace}
+  .card{background:white;border:1px solid #e3eef6;border-radius:12px;box-shadow:0 2px 10px rgba(10,34,48,.05);padding:18px 18px}
+  .grid{display:grid;gap:16px}
+  .two{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+  .note{border-left:4px solid var(--sub);padding:10px 12px;background:#f0f7fc;color:#263844}
+  .ok{border-left-color:var(--ok)}
+  .warn{border-left-color:var(--warn);background:#fff8f0}
+  .bad{border-left-color:var(--bad);background:#fff5f6}
+  .tiny{font-size:12px;color:#556}
+  a{color:var(--accent);text-decoration:underline}
+  .btn{display:inline-block;background:var(--accent);color:#fff;padding:10px 14px;border-radius:8px;text-decoration:none}
+  .kbd{display:inline-block;border:1px solid #cfdde8;border-radius:6px;background:#f7fbfe;padding:8px 10px}
+  .split{display:flex;gap:18px;flex-wrap:wrap;align-items:flex-start}
+  .shot{flex:1 1 260px;border:1px solid #d9e8f3;border-radius:10px;background:#fff;box-shadow:0 2px 10px rgba(10,34,48,.05);padding:10px}
+  .shot img{width:100%;height:auto;border-radius:6px;display:block}
+   .img{border:1px solid var(--border);border-radius:10px;overflow:hidden;margin:10px 0}
     .img img{width:100%;height:auto;display:block}
-    .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
-    .btn{display:inline-block;background:var(--link);color:#fff;text-decoration:none;border-radius:10px;padding:8px 12px;border:1px solid #0e58a7}
-    .btn.ghost{background:transparent;color:var(--link)}
-    footer{margin-top:36px;color:var(--muted);font-size:14px}
-  </style>
+  .cap{font-size:12px;color:#5a6b78;margin-top:8px}
+  figure{margin:0}
+  hr{border:0;border-top:1px solid #e5eef6;margin:24px 0}
+  header{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  flex-wrap:wrap;          
+}
+header .logo{
+  width:56px;            
+  height:56px;
+  object-fit:contain;
+}
+.header-text{
+  display:flex;
+  flex-direction:column;
+}
+header h1{ margin:0 0 4px; }
+</style>
+
 </head>
 <body>
-<main>
+<div class="wrap">
+
   <header>
-    <img class="logo" src="README-assets/OpenSkyPlus2_Logo.png" alt="OpenSkyPlus2 logo" />
-    <div>
-      <h1>OpenSkyPlus 2 — FAQ</h1>
-      <div class="tagline">Answers to the most common questions and quick troubleshooting tips.</div>
-    </div>
+     <img class="logo" src="README-assets/OpenSkyPlus2_Logo.png" alt="OpenSkyPlus2 logo" />
+    <h1>OpenSkyPlus2 — Installation Guide</h1>
+    <p class="tiny">Version: <strong>2.0.0</strong> · Developer: eKsiSLe · Project: <a href="https://github.com/OpenSkyPlus2">github.com/OpenSkyPlus2</a></p>
   </header>
 
-  <section class="card">
-    <h2>Quick Links</h2>
-    <div class="toc">
-      <a href="#startup-recommended">Recommended start-up process</a>
-      <a href="#slow-start">Why is the app taking a long time to start?</a>
-      <a href="#minui-red">MinimizedUI shows a red light</a>
-      <a href="#no-shots">Shots aren’t reaching GSPro</a>
-      <a href="#metric-mismatch">SkyTrak Range metrics vs. GSPro don’t match</a>
-      <a href="#aoa-metrics">How do we get AoA & other metrics into GSPro?</a>
-      <a href="#minui-missing">MinimizedUI doesn’t appear — is the plugin running?</a>
-      <a href="#updates">What’s the best way to install an update?</a>
-      <a href="#osp1-vs-osp2">Why move to OpenSkyPlus2 if OSP v1 “works”?</a>
-      <a href="#uninstall-old">Do I need to remove my old install first?</a>
-      <a href="#versions-supported">Which SkyTrak app versions are supported?</a>
-      <a href="#connections">Which connection types work?</a>
-      <a href="#putt-clamp">Putt Clamping & Distance Threshold explained</a>
-      <a href="#windows-move-resize">Windows are too big / in the way</a>
-      <a href="#ai-modeling">What is the AI modeling for?</a>
-      <a href="#supported-lm">Which launch monitors are supported?</a>
-      <a href="#cant-figure-out">Still stuck?</a>
-      <a href="#support-dev">How can I support the developer?</a>
-      <a href="#open-source">Is this open source?</a>
+  <div class="note ok">
+    <strong>TL;DR :</strong> Run the installer as Administrator, point it at your <code>C:\SkyTrak</code> folder (or let it install SkyTrak for you), finish, then launch “<em>SkyTrak (as Admin)</em>” from your desktop. That’s it.
+  </div>
+
+  <h2>What this installer does</h2>
+  <div class="grid two">
+    <div class="card">
+      <h3>Finds (or installs) SkyTrak</h3>
+      <ul>
+        <li>Auto-detects existing installs in <code>C:\SkyTrak</code>, <code>Program Files\SkyTrak</code>, etc.</li>
+        <li>If SkyTrak isn’t found, you’ll be offered to download and run the official installer
+            (<span class="tiny">5.7.31</span>) directly from SkyTrak’s Downloads page. Auto-downloads and installs.</li>
+      </ul>
     </div>
-  </section>
-
-  <section id="startup-recommended" class="q card">
-    <h2>What is the recommended start-up process?</h2>
-    <ol>
-      <li><strong>Plug in / power on your SkyTrak device.</strong></li>
-      <li><strong>Launch SkyTrak</strong> using the desktop shortcut <em>“SkyTrak (Admin)”</em> the installer created.
-        <div class="note ok">Running as Admin helps the plugin hook cleanly and avoids permission issues.</div>
-      </li>
-	  <li>Once the SkyTrak app is open, has the MinimizedUI in bottom corner, and has a yellow indicator. Proceed.</li>
-      <li><strong>Open GSPro</strong> and select your Monitor and resolution. Once the OpenConnect window is open, OpenSkyPlus2 will connect. No need to try to force a connection.</li>
-      <li>In GSPro's OpenConnect window, make sure the status is <strong>green</strong> and shows <code>Connected</code>. If not, check that the port is configured correctly.</li>
-	  <li>Hit a few balls to confirm you see shots in GSPro.</li>
-    </ol>
-    <div class="img"><img src="README-assets/faq-startup.png" alt="Recommended startup flow diagram" /></div>
-  </section>
-
-  <section id="slow-start" class="q card">
-    <h2>Why is the app taking a long time to start?</h2>
-    <p>Most long starts come from Windows permission prompts, antivirus scanning, or SkyTrak doing a first-run update.</p>
-    <ul>
-      <li>Use the <strong>“SkyTrak (Admin)”</strong> shortcut so UAC prompts don’t stall background injection.</li>
-      <li>Whitelist your SkyTrak install folder (default <code>C:\SkyTrak</code>) in antivirus to avoid scan delays.</li>
-      <li>If this is the <strong>first launch after updating SkyTrak</strong>, it may rebuild caches and take longer.</li>
-    </ul>
-    <div class="note">If startup consistently exceeds ~30–45 seconds, check the <code>BepInEx\LogOutput.log</code> file for clues (see <a href="#cant-figure-out">Still stuck?</a>).</div>
-  </section>
-
-  <section id="minui-red" class="q card">
-    <h2>I have a red light on the MinimizedUI. What does that mean?</h2>
-    <p>Red indicates the plugin isn’t fully “ready.” Common reasons:</p>
-    <ul>
-      <li>SkyTrak app hasn’t completed initialization yet.</li>
-      <li>No device session yet (launch monitor not connected).</li>
-    </ul>
-    <div class="img"><img src="README-assets/faq-minui-light.png" alt="MinimizedUI status light" /></div>
-    <p>Once everything is hooked and ready, you should see the light change to green. If it is yellow, the launch monitor is connected and ready (waiting on GSPro connection). If it stays red:</p>
-    <ul>
-      <li>Confirm SkyTrak is open and showing the range (though this is not required; you can play from anywhere in the app).</li>
-      <li>Confirm GSPro is listening on the matching port.</li>
-      <li>Try launching via the Admin shortcut.</li>
-    </ul>
-  </section>
-
-  <section id="no-shots" class="q card">
-    <h2>I hit shots, but they aren’t making it to GSPro. What causes that?</h2>
-    <h3>Quick checks</h3>
-    <ul>
-      <li><strong>GSPro connection &amp; port</strong>: Verify GSPro is set to OpenConnect/OpenAPI and the port is <code>921</code>. If the SkyTrak app disconnected, you may need to restart the GSPro OpenConnect. Restart SkyTrak, then restart OpenConnect in the GSPro menu.</li>
-      <li><strong>Firewall</strong>: If you didn’t select the installer task to open the firewall, allow inbound TCP <code>921</code> manually or re-run the installer with that task.</li>
-      <li><strong>Run as Admin</strong>: Use the “SkyTrak (Admin)” shortcut.</li>
-      <li><strong>Version compatibility</strong>: OSP2 targets SkyTrak 5.<em>4–7</em> (5.7.31 is last tested). Older 4.4.x builds are blocked.</li>
-      <li><strong>MinimizedUI status</strong>: If it’s red, see the section above.</li>
-    </ul>
-    <div class="note">Still nothing? Open <code>C:\SkyTrak\BepInEx\LogOutput.log</code> and look for “OpenConnect” or errors. Share those lines if you need help.</div>
-  </section>
-
-  <section id="aoa-metrics" class="q card">
-    <h2>How do we get AoA and other metrics into GSPro?</h2>
-    <p>If your hardware provides those metrics (e.g., SkyTrak+) and the SkyTrak app is exposing them, OSP2 forwards them to GSPro.</p>
-    <ul>
-      <li>In the ConfigUI, you can tweak <strong>Native Metric Timing Delay</strong> (0–100 ms). If GSPro is missing a metric, try a slightly higher delay (e.g., 25–40 ms) so the app has time to produce values. OSP2 is fast... sometimes too fast. We have to slow it down a little to give the app time to catch up.</li>
-      <li><strong>Enable Smart Data Interpolation</strong> to fill rare gaps in tricky shots (optional). Once you do, you will get all metrics using the Smart Shot Interpolator's cascading inference.</li>
-    </ul>
-    <div class="img"><img src="README-assets/faq-mismatch.png" alt="Native Metric Timing Delay setting" /></div>
-  </section>
-
-  <section id="startup-order" class="q card">
-    <h2 id="minui-missing">My app doesn’t show the MinimizedUI — is the plugin working?</h2>
-    <p>If you don’t see the MinimizedUI:</p>
-    <ul>
-      <li>Confirm the plugin files are in your SkyTrak folder (default <code>C:\SkyTrak</code>).</li>
-      <li>Launch SkyTrak using the <em>“SkyTrak (Admin)”</em> shortcut so injection has permissions.</li>
-      <li>Make sure you’re on a supported SkyTrak app (5.4–5.7). 4.4.x is not supported.</li>
-    </ul>
-    <div class="note">If the ExpandedUI was ever dragged off-screen, temporarily lower your display scaling, open the UI, and drag it back.</div>
-  </section>
-
-  <section id="metric-mismatch" class="q card">
-    <h2>My SkyTrak Range metrics don’t match what’s sent to GSPro. How do I fix it?</h2>
-    <ul>
-      <li>Increase <strong>Native Metric Timing Delay</strong> a bit (start at 25 ms, try 40–60 ms if necessary). If GSPro is displaying a different value than the SkyTrak range, try a slightly longer delay (e.g., 25–40 ms), so the app has time to produce values. OSP2 is fast... sometimes too fast. We have to slow it down a little to give the app time to catch up.</li>
-      <li>Temporarily disable <strong>Smart Data Interpolation</strong> to compare “raw vs forwarded” values.</li>
-      
-    </ul>
-    <div class="img"><img src="README-assets/faq-mismatch.png" alt="Troubleshooting mismatched metrics" /></div>
-  </section>
-
-  <section id="osp1-vs-osp2" class="q card">
-    <h2>What’s the benefit of OpenSkyPlus2 if OSP v1 still works?</h2>
-    <ul>
-      <li><strong>Designed for SkyTrak 5.x</strong> (tested through 5.7.31), with better hooking and compatibility checks.</li>
-       <li><strong>Smarter data</strong>: optional interpolation (providing users with full OpenAPI/GSPro metrics, native metrics when in the range, and a clean path to future AI residual improvements.</li>
-	  <li><strong>One-click SkyTrak install</strong> from the official source if you don’t have it, and automatic relocation to <code>C:\SkyTrak</code> for best results.</li>
-      <li><strong>Safer updates</strong>: optional backup of <code>BepInEx</code> before install.</li>
-      <li><strong>Quality-of-life</strong>: Better shot recognition, enahnced putting and chipping modes, quick buttons, and clearer statuses.</li>
-	  <li><strong>Better UI</strong>: Fully redesigned, cleaner code, and an experience that users deserve.</li>
-    </ul>
-  </section>
-
-  <section id="uninstall-old" class="q card">
-    <h2>Do I need to remove my old install before installing OSP2?</h2>
-    <p>No. The OSP2 installer can <strong>install over an existing setup</strong>. If it finds an existing <code>BepInEx</code> folder, it offers to <strong>back it up first</strong> to a timestamped folder (so you can roll back if you want).</p>
-  </section>
-
-  <section id="updates" class="q card">
-    <h2>When installing an update, what’s the best way to handle it?</h2>
-    <ol>
-      <li>Close SkyTrak and GSPro.</li>
-      <li>Run the new OSP2 installer. Accept the backup of <code>BepInEx</code> if offered.</li>
-      <li>Launch with the “SkyTrak (Admin)” shortcut and verify shots reach GSPro.</li>
-    </ol>
-    <div class="ok note">You don’t need to uninstall first. The installer updates in place and preserves your config in the back-up folder.</div>
-  </section>
-
-  <section id="ai-modeling" class="q card">
-    <h2>What is this AI modeling for?</h2>
-    <p>It’s an opt-in way to help OSP2 learn <em>better handling of edge-case shots</em> (e.g., low-speed, partial wedges) and keep behavior stable across SkyTrak app updates. Data is anonymized, stored locally first, and uploaded later. You can toggle it on/off any time in the ConfigUI. Files live in the plugins folder.</p>
-  </section>
-
-  <section id="supported-lm" class="q card">
-    <h2>Which launch monitors does this plugin support?</h2>
-    <p>OpenSkyPlus2 uses the SkyTrak platform. SkyTrak, SkyTrak+ and Foresight devices are able to connect. If you’re using a different device, it won’t be recognized by this plugin.</p>
-  </section>
-
-  <section id="versions-supported" class="q card">
-    <h2>Which SkyTrak app versions are supported?</h2>
-    <p>OSP2 is built for <strong>SkyTrak 5.<em>4–7</em></strong>. The latest tested build is <strong>5.7.31</strong>. If you’re on <strong>4.4.x</strong>, the installer will block installation and ask you to update.</p>
-  </section>
-
-  <section id="connections" class="q card">
-    <h2>What connection types work (USB Direct, Network, etc.)?</h2>
-    <p>OSP2 piggybacks on whatever the SkyTrak app itself supports on your machine. If SkyTrak connects and shows live data, OSP2 can relay the shot to GSPro via OpenConnect/OpenAPI. Ensure GSPro’s listening port matches (default <code>921</code>) or is changed in the GSPro4OSP config.</p>
-  </section>
-
-  <section id="putt-clamp" class="q card">
-    <h2>Can you explain Putt Clamping and the Distance Threshold?</h2>
-    <ul>
-      <li><strong>Putt Clamping Enabled</strong>: for short putts near the hole, caps the maximum allowed horizontal launch angle (HLA) so tiny mishits don’t produce wild misses. This has been added to curb wild HLA readings on slow putts on thicker mats. If you do not experience this issue, no need to have it enabled. </li>
-      <li><strong>Putting Distance Threshold</strong>: distance (in feet) under which clamping kicks in.</li>
-      <li><strong>Putting Max HLA Deviation</strong>: the cap, in degrees, applied when the ball is inside the threshold. i.e., if you do not want more than a 2 degree discrepancy, set it to 2 degrees.</li>
-    </ul>
-    <div class="img"><img src="README-assets/faq-putt-clamp.png" alt="Putt clamping UI settings" /></div>
-  </section>
-
-  <section id="windows-move-resize" class="q card">
-    <h2>The windows are too big / blocking my screen — can I resize or move them?</h2>
-    <p>Yes, you can drag panels to reposition them. You can also resize them by clicking the bottom-right corner and dragging in the direction of the change you want.</p>
-  </section>
-
-  <section id="support-dev" class="q card">
-    <h2>How can I support the developer of OpenSkyPlus2?</h2>
-    <p>Thank you! There’s a “Buy Me a Coffee” link in the installer and here:</p>
-    <div class="actions">
-      <a class="btn" href="https://www.buymeacoffee.com/eksisle" target="_blank" rel="noopener">Buy Me a Coffee</a>
+    <div class="card">
+      <h3>Targets the right versions</h3>
+      <ul>
+        <li>Supported SkyTrak app family: <strong>v5.4 – v5.7</strong> (latest known build: <strong>5.7.31</strong>).</li>
+        <li>SkyTrak <strong>4.4.x</strong> is blocked (Mono era). Please update to 5.x.</li>
+      </ul>
     </div>
-  </section>
-
-  <section id="open-source" class="q card">
-    <h2>Is this open source?</h2>
-    <p>Not yet — the project lives on GitHub at <a href="https://github.com/OpenSkyPlus2" target="_blank" rel="noopener">github.com/OpenSkyPlus2</a> but there will need to be some code cleaning done to get it to be releasable. That is the plan.</p>
-  </section>
-
-  <section id="cant-figure-out" class="q card">
-    <h2>What can I do if I still can’t figure it out?</h2>
-    <ol>
-      <li>Open <code>C:\SkyTrak\BepInEx\LogOutput.log</code> and skim the last ~50 lines for errors/warnings.</li>
-      <li>Check the MinimizedUI for the connection status light and note the color and its meaning.</li>
-      <li>Confirm your SkyTrak app version (Help → About or the <code>SkyTrak_Data\version.txt</code> file).</li>
-      <li>Share those details when you ask for help (in the SGT Discord).</li>
-    </ol>
-    <div class="actions">
-      <a class="btn" href="README-assets/faq-log-location.png" target="_blank">Where is the log?</a>
-      <a class="btn ghost" href="https://github.com/OpenSkyPlus2" target="_blank" rel="noopener">OpenSkyPlus2 on GitHub</a>
+    <div class="card">
+      <h3>Relocates to <code>C:\SkyTrak</code> (optional)</h3>
+      <ul>
+        <li>If your install lives under Program Files, you’ll be prompted to move it to <code>C:\SkyTrak</code> to avoid Windows write restrictions.</li>
+      </ul>
     </div>
-  </section>
+    <div class="card">
+      <h3>Keeps your stuff safe</h3>
+      <ul>
+        <li>If a <code>BepInEx</code> folder already exists, we’ll offer a timestamped backup: <code>BepInEx.backup.YYYYMMDD-HHMMSS</code>.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Creates helpful shortcuts</h3>
+      <ul>
+        <li><strong>SkyTrak</strong> desktop icon with the OSP2 logo (runs SkyTrak as admin, which some setups require).</li>
+        <li>Start-menu links to this guide and to open the BepInEx log in Notepad.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Optional firewall opening</h3>
+      <ul>
+        <li>Task: “Open Windows Firewall for GSPro OpenConnect” opens inbound TCP <code>921</code>.</li>
+      </ul>
+    </div>
+  </div>
 
-  <footer>
-    <p>© MajorLeagueFriendship • OpenSkyPlus2 • Installer defaults: SkyTrak folder <code>C:\SkyTrak</code>, GSPro port <code>921</code>.</p>
-  </footer>
-</main>
+  <h2>Requirements</h2>
+  <ul>
+    <li>Windows with admin rights (installer must run elevated to move folders).</li>
+    <li>SkyTrak app v5.x (the installer can fetch and install it if missing).</li>
+    <li>Enough disk space to copy SkyTrak if you choose to relocate it to <code>C:\SkyTrak</code>.</li>
+  </ul>
+
+  <h2>Quick install</h2>
+  <ol>
+    <li>Close SkyTrak if it’s running.</li>
+    <li>Run as administrator. It should run as one by default, but if not, to run as administrator, right-click the installer and choose <kbd>Run as administrator</kbd>.</li>
+    <li>When asked for the SkyTrak folder, pick <code>C:\SkyTrak</code>. If SkyTrak isn’t installed, click <strong>Yes</strong> when prompted to download and install it automatically.</li>
+    <li>If offered, allow relocation to <code>C:\SkyTrak</code> for fewer Windows permission issues.</li>
+    <li>If prompted, allow the installer to back up existing <code>BepInEx</code>.</li>
+    <li>(Optional) Select the firewall task to open port <code>921</code> for GSPro OpenConnect.</li>
+    <li>Finish. A README will open. Use the desktop shortcut <em>SkyTrak (Admin)</em> to launch.</li>
+  </ol>
+
+  <div class="split">
+    <figure class="shot">
+      <img src="./README-assets/RunAsAdmin.png" alt="Run the installer as Administrator">
+      <figcaption class="cap">Run the installer as Administrator</figcaption>
+    </figure>
+    <figure class="shot">
+      <img src="./README-assets/InstallLocationSelection.png" alt="Select your SkyTrak folder (C:\SkyTrak recommended)">
+      <figcaption class="cap">Select <code>C:\SkyTrak</code> (recommended)</figcaption>
+    </figure>
+    <figure class="shot">
+      <img src="./README-assets/InstallSkyTrak.png" alt="Offer to install the official SkyTrak app automatically">
+      <figcaption class="cap">If SkyTrak isn’t found, accept the automatic install</figcaption>
+    </figure>
+    <figure class="shot">
+      <img src="./README-assets/LocationNotIdeal.png" alt="Prompt to relocate SkyTrak to C:\SkyTrak">
+      <figcaption class="cap">Prompt to relocate to <code>C:\SkyTrak</code></figcaption>
+    </figure>
+    <figure class="shot">
+      <img src="./README-assets/CreateBackupofBepInEx.png" alt="Offer to create a BepInEx backup">
+      <figcaption class="cap">Option to back up <code>BepInEx</code> before installing</figcaption>
+    </figure>
+  </div>
+
+  <h2>After install</h2>
+  <ul>
+    <li>Launch using the desktop icon (the OSP2 logo) <strong>SkyTrak (Admin)</strong>.</li>
+    <li>Open logs via Start Menu → <em>OpenSkyPlus2 – Open LogOutput.log</em> (file: <code>SkyTrak\BepInEx\LogOutput.log</code>).</li>
+    <li>If you created a backup, it’s inside your SkyTrak folder as <code>BepInEx.backup.&lt;timestamp&gt;</code>.</li>
+  </ul>
+
+  <h2>Troubleshooting</h2>
+
+  <h3>“SkyTrak 4.4.x detected”</h3>
+  <div class="note bad">
+    Update the SkyTrak app to 5.x. The installer targets 5.4–5.7 only. If you need help, let the installer perform the official download & install for you when prompted.
+  </div>
+  <div class="split">
+    <figure class="shot">
+      <img src="./README-assets/OlderVersionDetected.png" alt="Older version detected message">
+      <figcaption class="cap">Example of the “older version detected” message</figcaption>
+    </figure>
+  </div>
+
+  <h3>“SkyTrak.exe not found”</h3>
+  <p>Pick the folder that contains <code>SkyTrak.exe</code>. Typical locations:</p>
+  <ul>
+    <li><code>C:\SkyTrak</code> (recommended)</li>
+    <li><code>C:\Program Files\SkyTrak</code></li>
+    <li><code>C:\Program Files (x86)\SkyTrak</code></li>
+  </ul>
+  <p>If you don’t have it, choose <strong>Yes</strong> when asked to install SkyTrak automatically.</p>
+  <div class="split">
+    <figure class="shot">
+      <img src="./README-assets/SkyTrakDoesNotExist.png" alt="SkyTrak not found prompt">
+      <figcaption class="cap">Prompt shown when SkyTrak isn’t detected</figcaption>
+    </figure>
+  </div>
+
+  <h3>Relocation failed</h3>
+  <div class="note warn">
+    Make sure SkyTrak is closed. The installer tries <code>robocopy</code> first, then <code>xcopy</code>. If copying still fails, move the folder manually to <code>C:\SkyTrak</code> and re-run the installer.
+  </div>
+
+  <h3>Firewall / GSPro connection issues</h3>
+  <ul>
+    <li>Re-run the installer and select the task “Open Windows Firewall for GSPro OpenConnect (TCP 921)”.</li>
+    <li>Or run as admin: <code>netsh advfirewall firewall add rule name="GSPro OpenConnect" dir=in action=allow protocol=TCP localport=921</code>.</li>
+  </ul>
+
+  <h3>Antivirus/Defender blocked the installer</h3>
+  <p>This setup writes to the SkyTrak folder and creates a launcher script. Temporarily allow/whitelist the installer if your AV is aggressive, then re-run as Administrator.</p>
+
+  <h3>Where are things installed?</h3>
+  <ul>
+    <li><strong>SkyTrak folder:</strong> usually <code>C:\SkyTrak</code> (recommended). You may be prompted to relocate it there.</li>
+    <li><strong>BepInEx & OpenSkyPlus2 files:</strong> inside the same SkyTrak folder (<code>{SkyTrak}\BepInEx\...</code>).</li>
+    <li><strong>Backups:</strong> <code>{SkyTrak}\BepInEx.backup.YYYYMMDD-HHNNSS</code>.</li>
+    <li><strong>Uninstaller:</strong> “OpenSkyPlus2” in Apps & Features, or run the standard uninstaller.</li>
+  </ul>
+
+  <h2>Uninstall / Reinstall</h2>
+  <ul>
+    <li>Uninstall <em>OpenSkyPlus2</em> from Windows “Apps & Features”.</li>
+    <li>Any backup folders remain in place; the uninstaller will offer to open them afterward.</li>
+    <li>To reinstall, just run the new installer and follow this guide.</li>
+  </ul>
+
+  <hr>
+  <p class="tiny">
+    Need help? Reach out to eKsiSLe on the SGT discord.
+    If you’d like to support development: <a href="https://www.buymeacoffee.com/eksisle">Buy Me a Coffee</a>.
+  </p>
+
+</div>
 </body>
 </html>
-
-
-
-
 
