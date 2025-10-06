@@ -5,9 +5,10 @@
 
 - Quick Start (HTML): [Quick Start](https://openskyplus2.github.io/OpenSkyPlus2/README-OpenSkyPlus2.html)
 - FAQs (HTML): [FAQs](https://openskyplus2.github.io/OpenSkyPlus2/FAQs-OpenSkyPlus2.html)
-- Installer downloads: see [Releases](../../releases)
 - Installation Guide (HTML): [Installation Guide](https://openskyplus2.github.io/OpenSkyPlus2/OpenSkyPlus2-InstallGuide.html)
-- Donate: [Buy me a coffee](https://www.buymeacoffee.com/eksisle)
+- Installer downloads: see [Releases](../../releases)
+
+- **Donate:** [Buy me a coffee](https://www.buymeacoffee.com/eksisle)
 
 ## License
 
