@@ -43,15 +43,16 @@
 
   <h2>Version compatibility</h2>
   <ul>
-    <li><span class="ok">Supported:</span> SkyTrak <strong>5.4, 5.5, 5.6</strong> (last tested: <strong>5.6.14</strong>).</li>
+    <li><span class="ok">Supported:</span> SkyTrak <strong>5.4, 5.5, 5.6, 5.7 (up to Beta 6), 5.8 (after Beta 6)</strong> (last tested: <strong>5.8.25 (Beta 7 and above)</strong>).</li>
     <li><span class="bad">Blocked:</span> SkyTrak <strong>4.4.x</strong> in the selected folder (use SkyTrak v5.x or choose a different folder).</li>
-    <li><span class="warn">Newer/older than 5.4–5.6:</span> allowed with warning; results not guaranteed.</li>
+    <li><span class="warn">Newer/older than 5.4–5.8:</span> allowed with warning; results not guaranteed.</li>
   </ul>
 
 <h2>Supported Launch Monitors</h2>
   <ul>
     <li><strong>ST</strong> - I do not own this, but can confirm this does work via external testing. If a feature does not work, let me know.</li>
     <li><strong>ST+</strong> - This plugin was built with this device and its users in mind.</li>
+	<li><strong>ST Max</strong> - I do not have this, but once I have a tester, I can ensure it works. It should work by default. If not, let me know.</li>
     <li><strong>Foresight Devices</strong> - These can connect to the software, so they should work, but I am not a millionaire, so I have not tested them. I wrote the plugin to be agnostic to the hardware, while taking all parameters into account for each different device.</li>
   </ul>
 
@@ -260,7 +261,7 @@
   <h2>Connecting to GSPro</h2>
   <ol>
     <li>Open GSPro &rarr; <strong>OpenConnect</strong>.</li>
-    <li>Default is <code>127.0.0.1:921</code>. Ensure the port matches your G4O2 config.</li>
+    <li>Default is <code>127.0.0.1:921</code>. Ensure the port matches your G4O2 config. If you did not touch this, it is the default (921)</li>
     <li>Once connected, the OSP2 overlay dot should turn green; shots will stream automatically.</li>
   </ol>
 
@@ -292,3 +293,4 @@
   </footer>
 </body>
 </html>
+
