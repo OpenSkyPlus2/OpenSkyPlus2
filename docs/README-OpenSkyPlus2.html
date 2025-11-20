@@ -43,7 +43,7 @@
 
   <h2>Version compatibility</h2>
   <ul>
-    <li><span class="ok">Supported:</span> SkyTrak <strong>5.4, 5.5, 5.6, 5.7 (up to Beta 6), 5.8 (after Beta 6)</strong> (last tested: <strong>5.8.25 (Beta 7 and above)</strong>).</li>
+    <li><span class="ok">Supported:</span> SkyTrak <strong>5.4, 5.5, 5.6, 5.7 Beta6 and below, 5.8 (beta7 and above)</strong> (last tested: <strong>5.8.27</strong>).</li>
     <li><span class="bad">Blocked:</span> SkyTrak <strong>4.4.x</strong> in the selected folder (use SkyTrak v5.x or choose a different folder).</li>
     <li><span class="warn">Newer/older than 5.4–5.8:</span> allowed with warning; results not guaranteed.</li>
   </ul>
@@ -52,7 +52,7 @@
   <ul>
     <li><strong>ST</strong> - I do not own this, but can confirm this does work via external testing. If a feature does not work, let me know.</li>
     <li><strong>ST+</strong> - This plugin was built with this device and its users in mind.</li>
-	<li><strong>ST Max</strong> - I do not have this, but once I have a tester, I can ensure it works. It should work by default. If not, let me know.</li>
+	<li><strong>ST Max</strong> - The newest launch monitor is supported. Testing still to be completed.</li>
     <li><strong>Foresight Devices</strong> - These can connect to the software, so they should work, but I am not a millionaire, so I have not tested them. I wrote the plugin to be agnostic to the hardware, while taking all parameters into account for each different device.</li>
   </ul>
 
@@ -178,7 +178,7 @@
 
     <div class="ui-card">
       <h3>Config (gear)</h3>
-      <p>Opens the <strong>ConfigUI</strong> so you can tweak options (interpolation, confidence, putt clamping, UI size, etc.). Changes are hot-loaded on <em>Save</em>.</p>
+      <p>Opens the <strong>ConfigUI</strong> so you can tweak options (interpolation, confidence, putt clamping, AI Data, etc.). Changes are hot-loaded on <em>Save</em>.</p>
     </div>
   </div>
 </section>
@@ -188,7 +188,7 @@
 <section id="config-ui" class="ui-ref">
   <h2>ConfigUI (live settings)</h2>
   <p>
-    The Config UI lets you tweak OSP2 at runtime and <strong>hot-load</strong> the changes.
+    The ConfigUI lets you tweak OSP2 at runtime and <strong>hot-load</strong> the changes.
     Click the <em>Save</em> icon to write <code>BepInEx\config\OpenSkyPlus2.cfg</code> and apply immediately.
     Close (<em>×</em>) just hides the panel; unsaved changes are not applied or persisted.
   </p>
@@ -220,7 +220,7 @@
         <li>Normal ≈ balanced default</li>
         <li>Strict ≈ highest quality only</li>
       </ul>
-      <p class="legend" style="margin-top:6px">Internally maps to numeric floors (Forgiving/Normal/Strict) used by the processor.</p>
+      <p class="legend" style="margin-top:6px">Internally maps to numeric floors (Forgiving/Normal/Strict) used by the plugin.</p>
     </div>
 
     <div class="ui-card">
@@ -239,13 +239,56 @@
     </div>
 
     <div class="ui-card">
-      <h3>UI Width / UI Height</h3>
-      <p>Resize the ExpandedUI as a percentage of your screen (default 60% × 60%). Handy for smaller monitors or ultra-wide layouts.</p>
+      <h3>Native Metric Timing Delay</h3>
+      <p>Adjustable timing to ensure metrics populate when in the range. This delays the "ready" signal from the hardware to the Interpolator to give the app more time to produce all metrics.</p>
+    </div>
+	    <div class="ui-card">
+      <h3>Putting Mode</h3>
+      <p>
+        Global on/off toggle for hardware Putting mode. When enabled, GSPro4OSP asks OSP2
+        to switch the device to Putting whenever the selected club in GSPro is
+        <code>PT</code>, regardless of distance to the pin. When disabled, the device
+        stays in Normal / Short Chip modes only; GSPro still flags the shot as a putt,
+        but the hardware is not moved into its dedicated putting state.
+      </p>
+    </div>
+
+   
+        <div class="ui-card">
+      <h3>Short Chip Distance Threshold</h3>
+      <p>
+        Distance from the pin under which Short Chip mode can be auto-enabled. A value of
+        <strong>0</strong> turns Short Chip mode off. Any value &gt; 0 enables it and is interpreted
+        using the selected Short Chip distance unit (yards/meters/feet). Clubs must be entered in the cfg file. Default is GW,SW,LW
+      </p>
+      <p class="legend" style="margin-top:6px">
+        Only available while a GSPro connection is active (GSPro4OSP must be loaded to edit this setting).
+      </p>
+    </div>
+
+    <div class="ui-card">
+      <h3>Short Chip Distance Unit</h3>
+      <p>
+        Unit used for the Short Chip distance threshold. Supported values:
+        <code>meters</code>/<code>metres</code>/<code>m</code>,
+        <code>feet</code>/<code>ft</code>,
+        <code>yards</code>/<code>yd</code>/<code>yds</code>.
+        Default is <strong>yards</strong>.
+      </p>
+      <p class="legend" style="margin-top:6px">
+        Only available while a GSPro connection is active (GSPro4OSP must be loaded to edit this setting).
+      </p>
+    </div>
+
+
+	<div class="ui-card">
+      <h3>Anonymized Shot Data (Opt-in)</h3>
+      <p>Helps improve AI residuals. No personal data. This is an opt-in-only setting to generate anonymized swing data to be used for the in-plugin AI model. Swing residuals update nightly and are club aware. </p>
     </div>
 
     <div class="ui-card">
       <h3>Save Icon</h3>
-      <p>Writes <code>OpenSkyPlus2.cfg</code> and applies changes immediately (“hot-load”). Use this after any adjustments you want to keep.</p>
+      <p>Writes <code>OpenSkyPlus2.cfg and applicable GSPro4Osp.cfg values</code> and applies changes immediately (“hot-load”). Use this after any adjustments you want to keep.</p>
     </div>
 
     <div class="ui-card">
@@ -256,19 +299,24 @@
 </section>
 <!-- ─────────── end CONFIG UI ─────────── -->
 
-
+  <h2>Resizing & Dragging Windows</h2>
+  <ol>
+    <li>Click the bottom-right corner and drag to your desired size. Works for all windows, except ConfigUI.</li>
+    <li>To drag, click anywhere on the front-most window to move. Works for all windows.</li>
+    <li>When a window is resized or dragged, the resized/dragged window will remain there even after restart.</li>
+  </ol>
 
   <h2>Connecting to GSPro</h2>
   <ol>
     <li>Open GSPro &rarr; <strong>OpenConnect</strong>.</li>
-    <li>Default is <code>127.0.0.1:921</code>. Ensure the port matches your G4O2 config. If you did not touch this, it is the default (921)</li>
+    <li>Default is <code>127.0.0.1:921</code>. Ensure the port matches your GSPro4OSP config.</li>
     <li>Once connected, the OSP2 overlay dot should turn green; shots will stream automatically.</li>
   </ol>
 
   <h2>Config files</h2>
   <ul>
     <li><strong>OSP2</strong> (OpenSkyPlus2): <code>BepInEx\config\OpenSkyPlus2.cfg</code></li>
-    <li><strong>G4O2</strong> (GSPro4OSP v2): <code>BepInEx\config\GsPro4Osp.json</code></li>
+    <li><strong>G4O2</strong> (GSPro4OSP v2): <code>BepInEx\config\GsPro4Osp.cfg</code></li>
   </ul>
   <p>See the two “Config Quick Guides” included with the installer for available options.</p>
 
@@ -293,4 +341,3 @@
   </footer>
 </body>
 </html>
-

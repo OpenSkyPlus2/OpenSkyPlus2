@@ -109,8 +109,8 @@
     <div class="img"><img src="README-assets/faq-minui-light.png" alt="MinimizedUI status light" /></div>
     <p>Once everything is hooked and ready, you should see the light change to green. If it is yellow, the launch monitor is connected and ready (waiting on GSPro connection). If it stays red:</p>
     <ul>
-      <li>Confirm SkyTrak is open and showing the range (though this is not required; you can play from anywhere in the app).</li>
-      <li>Confirm GSPro is listening on the matching port.</li>
+      <li>Confirm SkyTrak is open and showing the range or the main menu.</li>
+      <li>Confirm GSPro is listening on the matching port--unless you change it, it is.</li>
       <li>Try launching via the Admin shortcut.</li>
     </ul>
   </section>
@@ -122,7 +122,7 @@
       <li><strong>GSPro connection &amp; port</strong>: Verify GSPro is set to OpenConnect/OpenAPI and the port is <code>921</code>. If the SkyTrak app disconnected, you may need to restart the GSPro OpenConnect. Restart SkyTrak, then restart OpenConnect in the GSPro menu.</li>
       <li><strong>Firewall</strong>: If you didn’t select the installer task to open the firewall, allow inbound TCP <code>921</code> manually or re-run the installer with that task.</li>
       <li><strong>Run as Admin</strong>: Use the “SkyTrak (Admin)” shortcut.</li>
-      <li><strong>Version compatibility</strong>: OSP2 targets SkyTrak 5.<em>4–7</em> (5.7.31 is last tested). Older 4.4.x builds are blocked.</li>
+      <li><strong>Version compatibility</strong>: OSP2 targets SkyTrak 5.<em>4–8</em> (5.8.27 is last tested). Older 4.4.x builds are blocked.</li>
       <li><strong>MinimizedUI status</strong>: If it’s red, see the section above.</li>
     </ul>
     <div class="note">Still nothing? Open <code>C:\SkyTrak\BepInEx\LogOutput.log</code> and look for “OpenConnect” or errors. Share those lines if you need help.</div>
@@ -142,11 +142,11 @@
     <h2 id="minui-missing">My app doesn’t show the MinimizedUI — is the plugin working?</h2>
     <p>If you don’t see the MinimizedUI:</p>
     <ul>
-      <li>Confirm the plugin files are in your SkyTrak folder (default <code>C:\SkyTrak</code>).</li>
+      <li>Confirm the plugin files are in your SkyTrak folder (default <code>C:\SkyTrak\BepInEx\plugins\OpenSkyPlus2</code>).</li>
       <li>Launch SkyTrak using the <em>“SkyTrak (Admin)”</em> shortcut so injection has permissions.</li>
-      <li>Make sure you’re on a supported SkyTrak app (5.4–5.7). 4.4.x is not supported.</li>
+      <li>Make sure you’re on a supported SkyTrak app (5.4–5.8). 4.4.x is not supported.</li>
     </ul>
-    <div class="note">If the ExpandedUI was ever dragged off-screen, temporarily lower your display scaling, open the UI, and drag it back.</div>
+    <div class="note">If the UI was ever dragged off-screen, delete its saved position (contact @eKsiSLe on discord or send a message in discord #skytrakplus channel for the quick reset steps) or temporarily increase your display resolution, open the UI, and drag it back.</div>
   </section>
 
   <section id="metric-mismatch" class="q card">
@@ -162,11 +162,11 @@
   <section id="osp1-vs-osp2" class="q card">
     <h2>What’s the benefit of OpenSkyPlus2 if OSP v1 still works?</h2>
     <ul>
-      <li><strong>Designed for SkyTrak 5.x</strong> (tested through 5.7.31), with better hooking and compatibility checks.</li>
-       <li><strong>Smarter data</strong>: optional interpolation (providing users with full OpenAPI/GSPro metrics, native metrics when in the range, and a clean path to future AI residual improvements.</li>
+      <li><strong>Designed for SkyTrak 5.x</strong> (tested through 5.8.27), with better hooking and compatibility checks.</li>
+       <li><strong>Smarter data</strong>: optional interpolation, native metris, and a clean path to future AI residual improvements.</li>
 	  <li><strong>One-click SkyTrak install</strong> from the official source if you don’t have it, and automatic relocation to <code>C:\SkyTrak</code> for best results.</li>
       <li><strong>Safer updates</strong>: optional backup of <code>BepInEx</code> before install.</li>
-      <li><strong>Quality-of-life</strong>: Better shot recognition, enahnced putting and chipping modes, quick buttons, and clearer statuses.</li>
+      <li><strong>Quality-of-life</strong>: Admin launcher, firewall rule option for port <code>921</code>, quick links, and clearer status.</li>
 	  <li><strong>Better UI</strong>: Fully redesigned, cleaner code, and an experience that users deserve.</li>
     </ul>
   </section>
@@ -198,7 +198,7 @@
 
   <section id="versions-supported" class="q card">
     <h2>Which SkyTrak app versions are supported?</h2>
-    <p>OSP2 is built for <strong>SkyTrak 5.<em>4–7</em></strong>. The latest tested build is <strong>5.7.31</strong>. If you’re on <strong>4.4.x</strong>, the installer will block installation and ask you to update.</p>
+    <p>OSP2 is built for <strong>SkyTrak 5.<em>4–8</em></strong>. The latest tested build is <strong>5.8.23</strong>. If you’re on <strong>4.4.x</strong>, the installer will block installation and ask you to update.</p>
   </section>
 
   <section id="connections" class="q card">
@@ -218,7 +218,7 @@
 
   <section id="windows-move-resize" class="q card">
     <h2>The windows are too big / blocking my screen — can I resize or move them?</h2>
-    <p>Yes, you can drag panels to reposition them. You can also resize them by clicking the bottom-right corner and dragging in the direction of the change you want.</p>
+    <p>Yes, you can drag panels to reposition them. You can also resize them by clicking the bottom-right corner and dragging on the direction of the change you want.</p>
   </section>
 
   <section id="support-dev" class="q card">
@@ -254,7 +254,3 @@
 </main>
 </body>
 </html>
-
-
-
-
